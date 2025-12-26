@@ -880,48 +880,93 @@
                 font-size: 48px;
             }
         }
+        /* Language Toggle */
+        .lang-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            background: var(--black);
+            border-radius: 50px;
+            padding: 4px;
+        }
+
+        .lang-btn {
+            padding: 8px 16px;
+            border: none;
+            background: transparent;
+            color: var(--white);
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 50px;
+            transition: all 0.2s;
+        }
+
+        .lang-btn.active {
+            background: var(--primary);
+            color: var(--black);
+        }
+
+        .lang-btn:hover:not(.active) {
+            background: rgba(255,255,255,0.1);
+        }
+
+        @media print {
+            .lang-toggle {
+                display: none;
+            }
+        }
     </style>
 </head>
 <body>
+    <!-- Language Toggle -->
+    <div class="lang-toggle">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="zh">中文</button>
+    </div>
+
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-logo">Viral<span>AI</span></div>
         <h1>Think Viral,<br>Create Scale.</h1>
-        <p class="hero-subtitle">Viral AI is an end-to-end engine that automates viral ideas and video production at scale.</p>
+        <p class="hero-subtitle" data-en="Viral AI is an end-to-end engine that automates viral ideas and video production at scale." data-zh="Viral AI 是一个端到端引擎，可规模化自动生成爆款创意和视频内容。">Viral AI is an end-to-end engine that automates viral ideas and video production at scale.</p>
     </section>
 
     <!-- Problem Section -->
     <section class="problem-section">
         <div class="section-header">
-            <span class="section-tag">The Problem</span>
-            <h2 class="section-title">The Broken Creative Pipeline</h2>
-            <p class="section-desc">Brands and creators are trapped in an inefficient, unscalable content creation cycle.</p>
+            <span class="section-tag" data-en="The Problem" data-zh="痛点">The Problem</span>
+            <h2 class="section-title" data-en="The Broken Creative Pipeline" data-zh="断裂的创意生产线">The Broken Creative Pipeline</h2>
+            <p class="section-desc" data-en="Brands and creators are trapped in an inefficient, unscalable content creation cycle." data-zh="品牌和创作者都陷入了低效、无法规模化的内容创作困境。">Brands and creators are trapped in an inefficient, unscalable content creation cycle.</p>
         </div>
 
         <div class="problem-grid">
             <div class="problem-card">
-                <h3>Content Creation is a Guessing Game</h3>
-                <p>Advertisers and creators have no idea what scripts will go viral. Every creative decision is based on gut feeling, not data.</p>
+                <h3 data-en="Content Creation is a Guessing Game" data-zh="内容创作难">Content Creation is a Guessing Game</h3>
+                <p data-en="Advertisers and creators have no idea what scripts will go viral. Every creative decision is based on gut feeling, not data." data-zh="广告主和创作者不知道什么样的脚本能火，全靠拍脑袋"。">Advertisers and creators have no idea what scripts will go viral. Every creative decision is based on gut feeling, not data.</p>
             </div>
             <div class="problem-card">
-                <h3>Matching Inefficiency</h3>
-                <p>Finding the right creators manually is extremely inefficient, with massive communication overhead and wasted resources.</p>
+                <h3 data-en="Matching Inefficiency" data-zh="匹配效率低">Matching Inefficiency</h3>
+                <p data-en="Finding the right creators manually is extremely inefficient, with massive communication overhead and wasted resources." data-zh="人工找达人效率极低，沟通成本巨大。">Finding the right creators manually is extremely inefficient, with massive communication overhead and wasted resources.</p>
             </div>
             <div class="problem-card">
-                <h3>Impossible to Scale</h3>
-                <p>Brands struggle to manage content output and order workflows across hundreds or thousands of KOLs simultaneously.</p>
+                <h3 data-en="Impossible to Scale" data-zh="规模化难">Impossible to Scale</h3>
+                <p data-en="Brands struggle to manage content output and order workflows across hundreds or thousands of KOLs simultaneously." data-zh="品牌方很难同时管理成百上千个 KOL 的内容产出与接单流程。">Brands struggle to manage content output and order workflows across hundreds or thousands of KOLs simultaneously.</p>
             </div>
         </div>
 
         <div class="reference-box">
-            <h4>💡 Industry Context</h4>
+            <h4 data-en="💡 Industry Context" data-zh="💡 行业背景">💡 Industry Context</h4>
             <div class="reference-item">
-                <h5>The Content Supply Gap</h5>
-                <p>Meta/Google absorbed hundreds of billions in ad spend through DPA because image automation is simple. But in the TikTok/Reels era, <strong>no video = no ad distribution.</strong></p>
+                <h5 data-en="The Content Supply Gap" data-zh="内容供给断层">The Content Supply Gap</h5>
+                <p data-en="Meta/Google absorbed hundreds of billions in ad spend through DPA because image automation is simple. But in the TikTok/Reels era, <strong>no video = no ad distribution.</strong>" data-zh="Meta/Google 靠 DPA 消化了数千亿美金的商品目录（Catalog），因为图片自动化很简单；但 TikTok/Reels 时代，<strong>没有视频就无法投放。</strong>">Meta/Google absorbed hundreds of billions in ad spend through DPA because image automation is simple. But in the TikTok/Reels era, <strong>no video = no ad distribution.</strong></p>
             </div>
             <div class="reference-item">
-                <h5>The Long-Tail SKU Problem</h5>
-                <p>Advertisers have 10,000 SKUs but only 5 viral videos. <strong>99% of products can't get traffic</strong> on short-video platforms because they lack video assets.</p>
+                <h5 data-en="The Long-Tail SKU Problem" data-zh="SKU 无法规模化">The Long-Tail SKU Problem</h5>
+                <p data-en="Advertisers have 10,000 SKUs but only 5 viral videos. <strong>99% of products can't get traffic</strong> on short-video platforms because they lack video assets." data-zh="广告主有 10,000 个 SKU，但只有 5 个爆款视频，<strong>99% 的商品因缺乏视频素材而无法在短视频平台获得流量。</strong>">Advertisers have 10,000 SKUs but only 5 viral videos. <strong>99% of products can't get traffic</strong> on short-video platforms because they lack video assets.</p>
             </div>
         </div>
     </section>
@@ -929,45 +974,45 @@
     <!-- Solution Section -->
     <section>
         <div class="solution-header">
-            <span class="section-tag">The Solution</span>
-            <h2>We Turn <span class="highlight">"Viral Magic"</span> Into Replicable Engineering</h2>
+            <span class="section-tag" data-en="The Solution" data-zh="解决方案">The Solution</span>
+            <h2 data-en="We Turn &quot;Viral Magic&quot; Into Replicable Engineering" data-zh="我们将"爆款制造"从玄学变成了可复制的工程学">We Turn <span class="highlight">"Viral Magic"</span> Into Replicable Engineering</h2>
         </div>
 
         <div class="solution-grid">
             <div class="solution-card">
                 <div class="solution-number">1</div>
-                <h3>AI Creative Engine</h3>
-                <p>Real-time monitoring of global short-video platforms, using vision and text AI to decode the "viral DNA."</p>
+                <h3 data-en="AI Creative Engine" data-zh="AI 创意引擎">AI Creative Engine</h3>
+                <p data-en="Real-time monitoring of global short-video platforms, using vision and text AI to decode the &quot;viral DNA.&quot;" data-zh="实时监控全球短视频平台，利用视觉/文本 AI 解析"爆款基因"。">Real-time monitoring of global short-video platforms, using vision and text AI to decode the "viral DNA."</p>
                 <ul>
-                    <li><strong>Pattern Recognition:</strong> Identifies what makes content go viral</li>
-                    <li><strong>Auto-Matching:</strong> AI algorithms automatically match the best creatives to your product</li>
+                    <li><strong data-en="Pattern Recognition:" data-zh="模式识别：">Pattern Recognition:</strong> <span data-en="Identifies what makes content go viral" data-zh="识别内容爆火的关键要素">Identifies what makes content go viral</span></li>
+                    <li><strong data-en="Auto-Matching:" data-zh="自动匹配：">Auto-Matching:</strong> <span data-en="AI algorithms automatically match the best creatives to your product" data-zh="AI 算法自动匹配最契合产品的创意">AI algorithms automatically match the best creatives to your product</span></li>
                 </ul>
             </div>
 
             <div class="solution-card">
                 <div class="solution-number">2</div>
-                <h3>Creator Cloning Factory</h3>
-                <p>Empowerment, not replacement. Creators record their likeness once, then seamlessly integrate into proven viral templates.</p>
+                <h3 data-en="Creator Cloning Factory" data-zh="创作者克隆工厂">Creator Cloning Factory</h3>
+                <p data-en="Empowerment, not replacement. Creators record their likeness once, then seamlessly integrate into proven viral templates." data-zh="赋能而非替代：创作者只需录制一次形象，即可一键将自己的脸无缝接入经过验证的爆款视频模板中。">Empowerment, not replacement. Creators record their likeness once, then seamlessly integrate into proven viral templates.</p>
                 <ul>
-                    <li><strong>One-Click Cloning:</strong> Instantly insert your face into verified hit video templates</li>
-                    <li><strong>Industrial Output:</strong> Anyone can produce "Hollywood-quality" shoppable videos in 5 minutes</li>
+                    <li><strong data-en="One-Click Cloning:" data-zh="一键克隆：">One-Click Cloning:</strong> <span data-en="Instantly insert your face into verified hit video templates" data-zh="即时将你的脸插入已验证的爆款视频模板">Instantly insert your face into verified hit video templates</span></li>
+                    <li><strong data-en="Industrial Output:" data-zh="工业化产出：">Industrial Output:</strong> <span data-en="Anyone can produce &quot;Hollywood-quality&quot; shoppable videos in minutes" data-zh="让不懂脚本、不会剪辑的素人，也能在几分钟内生产出"好莱坞级"的带货爆款视频">Anyone can produce "Hollywood-quality" shoppable videos in minutes</span></li>
                 </ul>
             </div>
 
             <div class="solution-card">
                 <div class="solution-number">3</div>
-                <h3>Programmatic Matching Network</h3>
-                <p>Highly efficient matching between KOLs and advertisers, enabling automated, bulk content production at scale.</p>
+                <h3 data-en="Recommendation-Driven Creator Collaboration Network" data-zh="推荐驱动的创作者协作网络">Recommendation-Driven Creator Collaboration Network</h3>
+                <p data-en="Highly efficient relevance-based matching between KOLs and advertisers, powered by a recommendation engine for scalable content production." data-zh="基于相关性的高效 KOL 与广告主匹配，由推荐引擎驱动，实现规模化内容生产。">Highly efficient relevance-based matching between KOLs and advertisers, powered by a recommendation engine for scalable content production.</p>
                 <ul>
-                    <li><strong>Smart Pairing:</strong> Algorithmically match creators to brand campaigns</li>
-                    <li><strong>Automated Workflows:</strong> End-to-end production pipeline from brief to delivery</li>
+                    <li><strong data-en="Smart Recommendations:" data-zh="智能推荐：">Smart Recommendations:</strong> <span data-en="Campaigns are ranked and matched using creator profiles, content signals, and historical performance data." data-zh="基于创作者画像、内容信号和历史表现数据，对活动进行排序和匹配。">Campaigns are ranked and matched using creator profiles, content signals, and historical performance data.</span></li>
+                    <li><strong data-en="Automated Feedback Workflow:" data-zh="自动反馈工作流：">Automated Feedback Workflow:</strong> <span data-en="End-to-end production pipeline with continuous learning from delivery and performance outcomes." data-zh="端到端生产流程，从投放和效果数据中持续学习。">End-to-end production pipeline with continuous learning from delivery and performance outcomes.</span></li>
                 </ul>
             </div>
         </div>
 
         <!-- Flow Diagram -->
         <div class="flow-diagram">
-            <h3>How It Works</h3>
+            <h3 data-en="How It Works" data-zh="工作流程">How It Works</h3>
             <img src="Gemini_Generated_Image_5jaqbn5jaqbn5jaq.png" alt="Viral AI Workflow" style="width: 100%; max-width: 1100px; margin: 0 auto; display: block;">
         </div>
     </section>
@@ -975,54 +1020,54 @@
     <!-- Market Validation Section -->
     <section>
         <div class="section-header">
-            <span class="section-tag">Market Validation</span>
-            <h2 class="section-title">Proven & Production-Ready</h2>
-            <p class="section-desc">We've launched cloneviral.video and validated the complete "AI viral deconstruction → face-swap replication" pipeline.</p>
+            <span class="section-tag" data-en="Market Validation" data-zh="市场验证">Market Validation</span>
+            <h2 class="section-title" data-en="Proven & Production-Ready" data-zh="产品已跑通">Proven & Production-Ready</h2>
+            <p class="section-desc" data-en="We've launched cloneviral.video and validated the complete &quot;AI viral deconstruction → face-swap replication&quot; pipeline." data-zh="推出 cloneviral.video，跑通了"AI 爆款解构 → 换脸复刻"的全流程。">We've launched cloneviral.video and validated the complete "AI viral deconstruction → face-swap replication" pipeline.</p>
         </div>
 
         <div class="validation-grid">
             <div class="metric-card">
                 <div class="metric-value">$0.5</div>
-                <div class="metric-label">Native Content CPI</div>
-                <p class="metric-desc">Baseline performance with original creator content</p>
+                <div class="metric-label" data-en="Native Content CPI" data-zh="原生素材 CPI">Native Content CPI</div>
+                <p class="metric-desc" data-en="Baseline performance with original creator content" data-zh="原创创作者内容的基准表现">Baseline performance with original creator content</p>
             </div>
             <div class="metric-card">
                 <div class="metric-value">$0.7</div>
-                <div class="metric-label">AI-Replicated CPI</div>
-                <p class="metric-desc">Near-native performance at 90% lower production cost</p>
+                <div class="metric-label" data-en="AI-Replicated CPI" data-zh="AI 复刻素材 CPI">AI-Replicated CPI</div>
+                <p class="metric-desc" data-en="Near-native performance at 90% lower production cost" data-zh="已极其接近原生，但生产成本降低了 90%">Near-native performance at 90% lower production cost</p>
             </div>
             <div class="metric-card">
                 <div class="metric-value">90%</div>
-                <div class="metric-label">Cost Reduction</div>
-                <p class="metric-desc">Dramatic savings in content production</p>
+                <div class="metric-label" data-en="Cost Reduction" data-zh="成本降低">Cost Reduction</div>
+                <p class="metric-desc" data-en="Dramatic savings in content production" data-zh="内容生产成本大幅降低">Dramatic savings in content production</p>
             </div>
         </div>
 
         <div class="validation-conclusion">
-            <strong>Industry Conclusion:</strong> AI-generated content has reached production-grade commercial standards, ready for large-scale ad deployment.
+            <span data-en="&lt;strong&gt;Industry Conclusion:&lt;/strong&gt; AI-generated content has reached production-grade commercial standards, ready for large-scale ad deployment." data-zh="&lt;strong&gt;行业结论：&lt;/strong&gt;AI 生成内容已达到生产环境商用标准，足以支撑大规模投放。"><strong>Industry Conclusion:</strong> AI-generated content has reached production-grade commercial standards, ready for large-scale ad deployment.</span>
         </div>
     </section>
 
     <!-- Market Size Section -->
     <section>
         <div class="section-header">
-            <span class="section-tag">Market Opportunity</span>
-            <h2 class="section-title">Massive Untapped Potential</h2>
+            <span class="section-tag" data-en="Market Opportunity" data-zh="市场规模">Market Opportunity</span>
+            <h2 class="section-title" data-en="Massive Untapped Potential" data-zh="巨大的未开发潜力">Massive Untapped Potential</h2>
         </div>
 
         <div class="market-cards">
             <div class="market-card">
-                <div class="market-label">Total Addressable Market</div>
+                <div class="market-label" data-en="Total Addressable Market" data-zh="总市场规模 (TAM)">Total Addressable Market</div>
                 <div class="market-value">$2T+</div>
-                <p>The global social media advertising market represents an enormous opportunity for disruption.</p>
+                <p data-en="The global social media advertising market represents an enormous opportunity for disruption." data-zh="全球社交媒体广告市场。">The global social media advertising market represents an enormous opportunity for disruption.</p>
             </div>
             <div class="market-card highlight">
-                <div class="market-label">The Real Opportunity</div>
+                <div class="market-label" data-en="The Real Opportunity" data-zh="核心增量市场">The Real Opportunity</div>
                 <div class="market-value">99%</div>
-                <p>Unlocking suppressed long-tail SKU advertising demand. Currently, only the top 1% of products have sufficient video assets.</p>
+                <p data-en="Unlocking suppressed long-tail SKU advertising demand. Currently, only the top 1% of products have sufficient video assets." data-zh="解放被压抑的长尾 SKU 投放需求。目前只有头部 1% 的商品有足够视频素材。">Unlocking suppressed long-tail SKU advertising demand. Currently, only the top 1% of products have sufficient video assets.</p>
                 <div class="market-stat">
                     <div class="stat-highlight">99%</div>
-                    <div class="stat-text">of products locked out of short-video platforms due to lack of video content. Viral AI unlocks their full ad potential.</div>
+                    <div class="stat-text" data-en="of products locked out of short-video platforms due to lack of video content. Viral AI unlocks their full ad potential." data-zh="的商品因缺乏视频内容而被锁在短视频平台之外。Viral AI 将释放它们全部的广告潜力。">of products locked out of short-video platforms due to lack of video content. Viral AI unlocks their full ad potential.</div>
                 </div>
             </div>
         </div>
@@ -1031,19 +1076,19 @@
     <!-- Business Model Section -->
     <section>
         <div class="section-header">
-            <span class="section-tag">Business Model</span>
-            <h2 class="section-title">How We Monetize</h2>
+            <span class="section-tag" data-en="Business Model" data-zh="盈利模式">Business Model</span>
+            <h2 class="section-title" data-en="How We Monetize" data-zh="如何盈利">How We Monetize</h2>
         </div>
 
         <div class="model-grid">
             <div class="model-card">
-                <h3>💰 Transaction Commission</h3>
-                <p>We take a technology service fee from the GMV or ad spend generated through platform-facilitated transactions.</p>
+                <h3 data-en="💰 Transaction Commission" data-zh="💰 交易佣金">💰 Transaction Commission</h3>
+                <p data-en="We take a technology service fee from the GMV or ad spend generated through platform-facilitated transactions." data-zh="从平台撮合产生的 GMV 或广告消耗中抽取技术服务费。">We take a technology service fee from the GMV or ad spend generated through platform-facilitated transactions.</p>
             </div>
             <div class="model-card">
-                <h3>🏢 Full-Service Management</h3>
-                <p>Scalable service fees for end-to-end brand management and campaign operations.</p>
-                <span class="model-tag">Being Phased Out</span>
+                <h3 data-en="🏢 Full-Service Management" data-zh="🏢 全案代运营">🏢 Full-Service Management</h3>
+                <p data-en="Scalable service fees for end-to-end brand management and campaign operations." data-zh="品牌全案代运营的规模化服务费用。">Scalable service fees for end-to-end brand management and campaign operations.</p>
+                <span class="model-tag" data-en="Being Phased Out" data-zh="逐步退出">Being Phased Out</span>
             </div>
         </div>
     </section>
@@ -1051,27 +1096,27 @@
     <!-- GTM Section -->
     <section>
         <div class="section-header">
-            <span class="section-tag">Go-To-Market Strategy</span>
-            <h2 class="section-title">Adoption Strategy</h2>
+            <span class="section-tag" data-en="Go-To-Market Strategy" data-zh="推广策略">Go-To-Market Strategy</span>
+            <h2 class="section-title" data-en="Adoption Strategy" data-zh="落地策略">Adoption Strategy</h2>
         </div>
 
         <div class="gtm-grid">
             <div class="gtm-card">
-                <h3>🏷️ Brand Side</h3>
+                <h3 data-en="🏷️ Brand Side" data-zh="🏷️ 品牌端">🏷️ Brand Side</h3>
                 <div class="gtm-item">
-                    <h4>Enterprise Clients</h4>
-                    <p>Multi-SKU DPA customers who need video assets at scale across their entire product catalog.</p>
+                    <h4 data-en="Enterprise Clients" data-zh="大客户">Enterprise Clients</h4>
+                    <p data-en="Multi-SKU DPA customers who need video assets at scale across their entire product catalog." data-zh="多 SKU 的 DPA 客户，需要为整个商品目录规模化生产视频素材。">Multi-SKU DPA customers who need video assets at scale across their entire product catalog.</p>
                 </div>
                 <div class="gtm-item">
-                    <h4>Standard Clients</h4>
-                    <p>TikTok Shop sellers and overseas DTC brands looking to generate viral ads and traffic in bulk.</p>
+                    <h4 data-en="Standard Clients" data-zh="普通客户">Standard Clients</h4>
+                    <p data-en="TikTok Shop sellers and overseas DTC brands looking to generate viral ads and traffic in bulk." data-zh="TikTok Shop 卖家和海外 DTC 品牌，批量生成爆款广告/流量。">TikTok Shop sellers and overseas DTC brands looking to generate viral ads and traffic in bulk.</p>
                 </div>
             </div>
             <div class="gtm-card featured">
-                <h3>👤 Creator Side <span class="gtm-badge">Priority Focus</span></h3>
+                <h3>👤 <span data-en="Creator Side" data-zh="创作者端">Creator Side</span> <span class="gtm-badge" data-en="Priority Focus" data-zh="重点">Priority Focus</span></h3>
                 <div class="gtm-item">
-                    <h4>TikTok Shop Creators & Affiliates</h4>
-                    <p>We target TikTok Shop creators and the global affiliate marketing community. Our tools help them make money faster, building our critical mass of creators.</p>
+                    <h4 data-en="TikTok Shop Creators & Affiliates" data-zh="TikTok Shop 达人和 Affiliate 群体">TikTok Shop Creators & Affiliates</h4>
+                    <p data-en="We target TikTok Shop creators and the global affiliate marketing community. Our tools help them make money faster, building our critical mass of creators." data-zh="聚焦 TikTok Shop 达人和海外做 Affiliate 的群体，用工具帮他们极速赚钱，建立创作者基数。">We target TikTok Shop creators and the global affiliate marketing community. Our tools help them make money faster, building our critical mass of creators.</p>
                 </div>
             </div>
         </div>
@@ -1080,28 +1125,28 @@
     <!-- Roadmap Section -->
     <section>
         <div class="section-header">
-            <span class="section-tag">Roadmap</span>
-            <h2 class="section-title">The Path Forward</h2>
+            <span class="section-tag" data-en="Roadmap" data-zh="规划路线">Roadmap</span>
+            <h2 class="section-title" data-en="The Path Forward" data-zh="发展路径">The Path Forward</h2>
         </div>
 
         <div class="roadmap-grid">
             <div class="roadmap-card current">
                 <div class="phase-badge">1</div>
-                <h4>The Tool Phase</h4>
-                <h3>Creator Foundation</h3>
-                <p>Build the ultimate AI cloning tool for creators. Accumulate seed users and proprietary data.</p>
+                <h4 data-en="The Tool Phase" data-zh="工具期">The Tool Phase</h4>
+                <h3 data-en="Creator Foundation" data-zh="创作者基础">Creator Foundation</h3>
+                <p data-en="Build the ultimate AI cloning tool for creators. Accumulate seed users and proprietary data." data-zh="打造极致体验的创作者 AI 复刻工具，积累种子用户和数据。">Build the ultimate AI cloning tool for creators. Accumulate seed users and proprietary data.</p>
             </div>
             <div class="roadmap-card">
                 <div class="phase-badge">2</div>
-                <h4>The Marketplace Phase</h4>
-                <h3>Network Effects</h3>
-                <p>Launch the automated matching engine. Connect brand SKUs with creators. Achieve commercial closed-loop.</p>
+                <h4 data-en="The Marketplace Phase" data-zh="平台期">The Marketplace Phase</h4>
+                <h3 data-en="Network Effects" data-zh="网络效应">Network Effects</h3>
+                <p data-en="Launch the automated matching engine. Connect brand SKUs with creators. Achieve commercial closed-loop." data-zh="上线自动化撮合引擎，打通品牌 SKU 与创作者的连接，跑通商业闭环。">Launch the automated matching engine. Connect brand SKUs with creators. Achieve commercial closed-loop.</p>
             </div>
             <div class="roadmap-card">
                 <div class="phase-badge">3</div>
-                <h4>The Infrastructure Phase</h4>
-                <h3>Global Ad Network</h3>
-                <p>Evolve into a global short-video ad network, expanding beyond TikTok to Reels, Shorts, and all platforms.</p>
+                <h4 data-en="The Infrastructure Phase" data-zh="基础设施期">The Infrastructure Phase</h4>
+                <h3 data-en="Global Ad Network" data-zh="全球广告网络">Global Ad Network</h3>
+                <p data-en="Evolve into a global short-video ad network, expanding beyond TikTok to Reels, Shorts, and all platforms." data-zh="演变为全球短视频广告网络，不仅服务 TikTok，更接入 Reels, Shorts 等全平台。">Evolve into a global short-video ad network, expanding beyond TikTok to Reels, Shorts, and all platforms.</p>
             </div>
         </div>
     </section>
@@ -1109,30 +1154,30 @@
     <!-- Growth Flywheel Section -->
     <section>
         <div class="section-header" style="text-align: center;">
-            <span class="section-tag">Growth Engine</span>
-            <h2 class="section-title">The Flywheel Effect</h2>
+            <span class="section-tag" data-en="Growth Engine" data-zh="增长飞轮">Growth Engine</span>
+            <h2 class="section-title" data-en="The Flywheel Effect" data-zh="飞轮效应">The Flywheel Effect</h2>
         </div>
 
         <div class="flywheel-container">
             <div class="flywheel-grid">
                 <!-- Row 1 -->
-                <div class="flywheel-item">👥 More Creators<br>Use Tools</div>
+                <div class="flywheel-item"><span data-en="👥 More Creators&lt;br&gt;Use Tools" data-zh="👥 更多创作者&lt;br&gt;使用工具">👥 More Creators<br>Use Tools</span></div>
                 <div class="flywheel-arrow">→</div>
-                <div class="flywheel-item">📊 More Viral Data<br>Generated</div>
+                <div class="flywheel-item"><span data-en="📊 More Viral Data&lt;br&gt;Generated" data-zh="📊 产生更多&lt;br&gt;爆款数据">📊 More Viral Data<br>Generated</span></div>
                 <div class="flywheel-arrow">→</div>
-                <div class="flywheel-item">🏢 Attracts More<br>Brand Spend</div>
+                <div class="flywheel-item"><span data-en="🏢 Attracts More&lt;br&gt;Brand Spend" data-zh="🏢 吸引更多&lt;br&gt;品牌投放">🏢 Attracts More<br>Brand Spend</span></div>
                 <!-- Row 2 -->
                 <div class="flywheel-arrow">↑</div>
                 <div></div>
-                <div class="flywheel-center">🔄 FLYWHEEL</div>
+                <div class="flywheel-center"><span data-en="🔄 FLYWHEEL" data-zh="🔄 飞轮">🔄 FLYWHEEL</span></div>
                 <div></div>
                 <div class="flywheel-arrow">↓</div>
                 <!-- Row 3 -->
-                <div class="flywheel-item">🚀 Attracts More<br>Creators</div>
+                <div class="flywheel-item"><span data-en="🚀 Attracts More&lt;br&gt;Creators" data-zh="🚀 吸引更多&lt;br&gt;创作者">🚀 Attracts More<br>Creators</span></div>
                 <div class="flywheel-arrow">←</div>
-                <div class="flywheel-item">💵 Creators Earn<br>More Money</div>
+                <div class="flywheel-item"><span data-en="💵 Creators Earn&lt;br&gt;More Money" data-zh="💵 创作者&lt;br&gt;赚更多钱">💵 Creators Earn<br>More Money</span></div>
                 <div class="flywheel-arrow">←</div>
-                <div class="flywheel-item">📈 Better Content<br>Performance</div>
+                <div class="flywheel-item"><span data-en="📈 Better Content&lt;br&gt;Performance" data-zh="📈 更好的内容&lt;br&gt;表现">📈 Better Content<br>Performance</span></div>
             </div>
         </div>
     </section>
@@ -1140,18 +1185,18 @@
     <!-- Competition Section -->
     <section>
         <div class="section-header">
-            <span class="section-tag">Competitive Landscape</span>
-            <h2 class="section-title">Why We Win</h2>
+            <span class="section-tag" data-en="Competitive Landscape" data-zh="竞争格局">Competitive Landscape</span>
+            <h2 class="section-title" data-en="Why We Win" data-zh="我们为何能赢">Why We Win</h2>
         </div>
 
         <table class="competition-table">
             <thead>
                 <tr>
-                    <th>Company</th>
-                    <th>AI Creative Engine</th>
-                    <th>Creator Cloning</th>
-                    <th>Programmatic Matching</th>
-                    <th>End-to-End Platform</th>
+                    <th data-en="Company" data-zh="公司">Company</th>
+                    <th data-en="AI Creative Engine" data-zh="AI 创意引擎">AI Creative Engine</th>
+                    <th data-en="Creator Cloning" data-zh="创作者克隆">Creator Cloning</th>
+                    <th data-en="Programmatic Matching" data-zh="程序化匹配">Programmatic Matching</th>
+                    <th data-en="End-to-End Platform" data-zh="端到端平台">End-to-End Platform</th>
                 </tr>
             </thead>
             <tbody>
@@ -1163,21 +1208,21 @@
                     <td class="check">✓</td>
                 </tr>
                 <tr>
-                    <td class="company">Traditional Agencies</td>
+                    <td class="company" data-en="Traditional Agencies" data-zh="传统代理商">Traditional Agencies</td>
                     <td class="cross">✗</td>
                     <td class="cross">✗</td>
                     <td class="cross">✗</td>
                     <td class="cross">✗</td>
                 </tr>
                 <tr>
-                    <td class="company">Creator Marketplaces</td>
+                    <td class="company" data-en="Creator Marketplaces" data-zh="创作者平台">Creator Marketplaces</td>
                     <td class="cross">✗</td>
                     <td class="cross">✗</td>
                     <td class="check">✓</td>
                     <td class="cross">✗</td>
                 </tr>
                 <tr>
-                    <td class="company">AI Video Tools</td>
+                    <td class="company" data-en="AI Video Tools" data-zh="AI 视频工具">AI Video Tools</td>
                     <td class="check">✓</td>
                     <td class="check">✓</td>
                     <td class="cross">✗</td>
@@ -1190,9 +1235,9 @@
     <!-- Team Section -->
     <section>
         <div class="section-header">
-            <span class="section-tag">The Team</span>
-            <h2 class="section-title">World-Class Operators</h2>
-            <p class="section-desc">A proven team from Meta, TikTok, Google, and YouTube with a track record of building global hits.</p>
+            <span class="section-tag" data-en="The Team" data-zh="团队介绍">The Team</span>
+            <h2 class="section-title" data-en="World-Class Operators" data-zh="世界级团队">World-Class Operators</h2>
+            <p class="section-desc" data-en="A proven team from Meta, TikTok, Google, and YouTube with a track record of building global hits." data-zh="来自 Meta、TikTok、Google 和 YouTube 的实战团队，拥有打造全球爆款的成功记录。">A proven team from Meta, TikTok, Google, and YouTube with a track record of building global hits.</p>
         </div>
 
         <div class="team-grid">
@@ -1205,9 +1250,9 @@
                     </div>
                 </div>
                 <ul class="team-bio">
-                    <li><strong>Advertising & Growth Expert:</strong> World-class expertise from Meta (Tech Lead for Video DR Ads) and TikTok (Product Lead for E-commerce Ads). Scaled Meta's Video DR Ad Revenue from <span class="highlight-metric">$400K to $40M/day</span>.</li>
-                    <li><strong>Serial Entrepreneur:</strong> Built global hits from 0 to 1: LiveIn (App Store #1, 2M DAU), Tiya (Social Top 4), Livehouse (Social Top 10).</li>
-                    <li><strong>Strategic Advisor:</strong> Growth consultant for high-profile tech firms. Managed cross-functional teams of 400+ people.</li>
+                    <li><strong data-en="Advertising & Growth Expert:" data-zh="广告与增长专家：">Advertising & Growth Expert:</strong> <span data-en="World-class expertise from Meta (Tech Lead for Video DR Ads) and TikTok (Product Lead for E-commerce Ads). Scaled Meta's Video DR Ad Revenue from" data-zh="来自 Meta（Video DR Ads Tech Lead）和 TikTok（电商广告 Product Lead）的世界级经验。将 Meta Video DR 广告收入从">World-class expertise from Meta (Tech Lead for Video DR Ads) and TikTok (Product Lead for E-commerce Ads). Scaled Meta's Video DR Ad Revenue from</span> <span class="highlight-metric">$400K to $40M/day</span>.</li>
+                    <li><strong data-en="Serial Entrepreneur:" data-zh="连续创业者：">Serial Entrepreneur:</strong> <span data-en="Built global hits from 0 to 1: LiveIn (App Store #1, 2M DAU), Tiya (Social Top 4), Livehouse (Social Top 10)." data-zh="从 0 到 1 打造全球爆款：LiveIn（App Store #1，2M DAU）、Tiya（社交 Top 4）、Livehouse（社交 Top 10）。">Built global hits from 0 to 1: LiveIn (App Store #1, 2M DAU), Tiya (Social Top 4), Livehouse (Social Top 10).</span></li>
+                    <li><strong data-en="Strategic Advisor:" data-zh="战略顾问：">Strategic Advisor:</strong> <span data-en="Growth consultant for high-profile tech firms. Managed cross-functional teams of 400+ people." data-zh="多家知名科技公司的增长顾问。曾管理超过 400 人的跨职能团队。">Growth consultant for high-profile tech firms. Managed cross-functional teams of 400+ people.</span></li>
                 </ul>
             </div>
 
@@ -1220,9 +1265,9 @@
                     </div>
                 </div>
                 <ul class="team-bio">
-                    <li><strong>Algorithms & Infrastructure Expert:</strong> CMU graduate and ACM-ICPC North American Invitational <span class="highlight-metric">Gold Medalist (#6)</span>.</li>
-                    <li><strong>Ex-Google/YouTube Tech Lead:</strong> 5 years at YouTube deep-diving into video ad recommendations, infrastructure, modeling, and content moderation algorithms.</li>
-                    <li><strong>Technical Moat:</strong> Architects high-concurrency systems bridging AI modeling and massive-scale ad distribution.</li>
+                    <li><strong data-en="Algorithms & Infrastructure Expert:" data-zh="算法与架构专家：">Algorithms & Infrastructure Expert:</strong> <span data-en="CMU graduate and ACM-ICPC North American Invitational" data-zh="CMU 毕业，ACM-ICPC 北美邀请赛">CMU graduate and ACM-ICPC North American Invitational</span> <span class="highlight-metric" data-en="Gold Medalist (#6)" data-zh="金牌（#6）">Gold Medalist (#6)</span>.</li>
+                    <li><strong data-en="Ex-Google/YouTube Tech Lead:" data-zh="前 Google/YouTube Tech Lead：">Ex-Google/YouTube Tech Lead:</strong> <span data-en="5 years at YouTube deep-diving into video ad recommendations, infrastructure, modeling, and content moderation algorithms." data-zh="在 YouTube 工作 5 年，深入研究视频广告推荐、基础设施、建模和内容审核算法。">5 years at YouTube deep-diving into video ad recommendations, infrastructure, modeling, and content moderation algorithms.</span></li>
+                    <li><strong data-en="Technical Moat:" data-zh="技术壁垒：">Technical Moat:</strong> <span data-en="Architects high-concurrency systems bridging AI modeling and massive-scale ad distribution." data-zh="构建高并发系统，连接 AI 建模与推荐算法专家。">Architects high-concurrency systems bridging AI modeling and massive-scale ad distribution.</span></li>
                 </ul>
             </div>
 
@@ -1235,9 +1280,9 @@
                     </div>
                 </div>
                 <ul class="team-bio">
-                    <li><strong>Visionary Product Architect:</strong> Former Product Lead for Sango (<span class="highlight-metric">50M+ users</span>) and LiveIn (App Store Overall #1).</li>
-                    <li><strong>Product & Design Specialist:</strong> Master of social and AI products. Renowned for top-tier UI/UX and human-AI interaction expertise.</li>
-                    <li>Ensures complex technology is delivered through an intuitive, world-class user experience.</li>
+                    <li><strong data-en="Visionary Product Architect:" data-zh="产品架构师：">Visionary Product Architect:</strong> <span data-en="Former Product Lead for Sango (" data-zh="前 Sango（">Former Product Lead for Sango (</span><span class="highlight-metric" data-en="50M+ users" data-zh="5000 万+ 用户">50M+ users</span><span data-en=") and LiveIn (App Store Overall #1)." data-zh="）和 LiveIn（App Store 总榜 #1）的产品负责人。">) and LiveIn (App Store Overall #1).</span></li>
+                    <li><strong data-en="Product & Design Specialist:" data-zh="产品与设计专家：">Product & Design Specialist:</strong> <span data-en="Master of social and AI products. Renowned for top-tier UI/UX and human-AI interaction expertise." data-zh="社交和 AI 产品大师。以顶级 UI/UX 和人机交互专业能力著称。">Master of social and AI products. Renowned for top-tier UI/UX and human-AI interaction expertise.</span></li>
+                    <li data-en="Ensures complex technology is delivered through an intuitive, world-class user experience." data-zh="确保复杂技术通过直观、世界级的用户体验交付。">Ensures complex technology is delivered through an intuitive, world-class user experience.</li>
                 </ul>
             </div>
 
@@ -1250,9 +1295,9 @@
                     </div>
                 </div>
                 <ul class="team-bio">
-                    <li><strong>Master Marketing Hacker:</strong> Creative mind behind global hits: LiveIn (Overall #1), Clapper (Overall #2), QuestionAI (Education #1), Poly AI, Rizzkey (Reference #10).</li>
-                    <li><strong>Viral Content Alchemist:</strong> Possesses a "sixth sense" for global culture and virality.</li>
-                    <li>Specializes in deconstructing high-performance marketing content into scalable, programmable AI logic.</li>
+                    <li><strong data-en="Master Marketing Hacker:" data-zh="营销黑客大师：">Master Marketing Hacker:</strong> <span data-en="Creative mind behind global hits: LiveIn (Overall #1), Clapper (Overall #2), QuestionAI (Education #1), Poly AI, Rizzkey (Reference #10)." data-zh="全球爆款背后的创意大脑：LiveIn（总榜 #1）、Clapper（总榜 #2）、QuestionAI（教育 #1）、Poly AI、Rizzkey（参考 #10）。">Creative mind behind global hits: LiveIn (Overall #1), Clapper (Overall #2), QuestionAI (Education #1), Poly AI, Rizzkey (Reference #10).</span></li>
+                    <li><strong data-en="Viral Content Alchemist:" data-zh="爆款内容专家：">Viral Content Alchemist:</strong> <span data-en="Possesses a &quot;sixth sense&quot; for global culture and virality." data-zh="对全球文化和病毒式传播拥有"第六感"。">Possesses a "sixth sense" for global culture and virality.</span></li>
+                    <li data-en="Specializes in deconstructing high-performance marketing content into scalable, programmable AI logic." data-zh="专注于将高效营销内容解构为可规模化、可编程的 AI 逻辑。">Specializes in deconstructing high-performance marketing content into scalable, programmable AI logic.</li>
                 </ul>
             </div>
         </div>
@@ -1260,9 +1305,9 @@
 
     <!-- Vision Section -->
     <section class="vision-section">
-        <span class="section-tag" style="background: var(--black); color: var(--primary);">Our Vision</span>
-        <h2 class="vision-quote">"Eliminating <span class="highlight">'Camera Privilege'</span>"</h2>
-        <p class="vision-text">
+        <span class="section-tag" style="background: var(--black); color: var(--primary);" data-en="Our Vision" data-zh="愿景">Our Vision</span>
+        <h2 class="vision-quote" data-en="&quot;Eliminating 'Camera Privilege'&quot;" data-zh=""消除'镜头特权'"">"Eliminating <span class="highlight">'Camera Privilege'</span>"</h2>
+        <p class="vision-text" data-en="We believe that the power to go viral shouldn't be limited to those with a camera and a studio. By using AI to decode and replicate creative genes, we empower every brand and every person to share their story with the world—&lt;strong&gt;instantly and effortlessly.&lt;/strong&gt;" data-zh="我们相信，爆火的能力不应该只属于那些拥有相机和工作室的人。通过使用 AI 解码和复制创意基因，我们赋能每个品牌和每个人，让他们能够与世界分享自己的故事——&lt;strong&gt;即时且毫不费力。&lt;/strong&gt;">
             We believe that the power to go viral shouldn't be limited to those with a camera and a studio. 
             By using AI to decode and replicate creative genes, we empower every brand and every person 
             to share their story with the world—<strong>instantly and effortlessly.</strong>
@@ -1274,5 +1319,43 @@
         <div class="footer-logo">Viral<span>AI</span></div>
         <p class="footer-text">Think Viral. Create Scale. © 2025 Viral AI. All Rights Reserved.</p>
     </footer>
+
+    <script>
+        // Language Toggle Functionality
+        const langBtns = document.querySelectorAll('.lang-btn');
+        let currentLang = 'en';
+
+        function switchLanguage(lang) {
+            currentLang = lang;
+            
+            // Update button states
+            langBtns.forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.lang === lang);
+            });
+
+            // Update all translatable elements
+            document.querySelectorAll('[data-en][data-zh]').forEach(el => {
+                const text = el.dataset[lang];
+                if (text) {
+                    // Handle HTML content
+                    if (text.includes('<') && text.includes('>')) {
+                        el.innerHTML = text;
+                    } else {
+                        el.textContent = text;
+                    }
+                }
+            });
+
+            // Update document language
+            document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+        }
+
+        // Add click handlers
+        langBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                switchLanguage(btn.dataset.lang);
+            });
+        });
+    </script>
 </body>
 </html>
