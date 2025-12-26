@@ -1,0 +1,1278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viral AI - Think Viral. Create Scale.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #D4FF00;
+            --primary-dark: #C4EE00;
+            --black: #0A0A0A;
+            --white: #FFFFFF;
+            --gray-100: #F5F5F5;
+            --gray-200: #E5E5E5;
+            --gray-500: #737373;
+            --gray-700: #404040;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--white);
+            color: var(--black);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                font-size: 11pt;
+            }
+            section {
+                page-break-inside: avoid;
+            }
+            .page-break {
+                page-break-before: always;
+            }
+        }
+
+        /* Layout */
+        section {
+            padding: 80px 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--primary);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 60px;
+            max-width: 100%;
+        }
+
+        .hero-logo {
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 80px;
+        }
+
+        .hero-logo span {
+            background: var(--black);
+            color: var(--primary);
+            padding: 4px 10px;
+            border-radius: 8px;
+            margin-left: 2px;
+        }
+
+        .hero h1 {
+            font-size: 96px;
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 40px;
+            letter-spacing: -3px;
+        }
+
+        .hero-subtitle {
+            font-size: 24px;
+            font-weight: 500;
+            max-width: 800px;
+            line-height: 1.5;
+        }
+
+        /* Section Headers */
+        .section-header {
+            margin-bottom: 50px;
+        }
+
+        .section-tag {
+            display: inline-block;
+            background: var(--primary);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 48px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 16px;
+            letter-spacing: -1px;
+        }
+
+        .section-desc {
+            font-size: 18px;
+            color: var(--black);
+            max-width: 700px;
+        }
+
+        /* Cards */
+        .card {
+            background: var(--gray-100);
+            border-radius: 0;
+            padding: 40px;
+        }
+
+        .card-dark {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .card-primary {
+            background: var(--primary);
+            color: var(--black);
+        }
+
+        /* Problem Section */
+        .problem-section {
+            background: var(--white);
+            color: var(--black);
+            max-width: 100%;
+        }
+
+        .problem-section .section-tag {
+            background: var(--primary);
+            color: var(--black);
+        }
+
+        .problem-section .section-desc {
+            color: var(--black);
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 50px;
+        }
+
+        .problem-card {
+            background: var(--white);
+            border-radius: 0;
+            padding: 36px;
+            border: 2px solid var(--gray-200);
+            border-left: 4px solid #FF4444;
+        }
+
+        .problem-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--black);
+        }
+
+        .problem-card p {
+            color: var(--black);
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .reference-box {
+            background: var(--white);
+            border-radius: 0;
+            padding: 40px;
+            border: 2px solid var(--gray-200);
+            border-left: 4px solid var(--primary);
+        }
+
+        .reference-box h4 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--black);
+            margin-bottom: 24px;
+        }
+
+        .reference-item {
+            margin-bottom: 24px;
+        }
+
+        .reference-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .reference-item h5 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--black);
+        }
+
+        .reference-item p {
+            color: var(--black);
+            font-size: 15px;
+        }
+
+        .reference-item strong {
+            color: var(--black);
+            font-weight: 700;
+            background: var(--primary);
+            padding: 0 4px;
+        }
+
+        /* Solution Section */
+        .solution-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .solution-header h2 {
+            font-size: 36px;
+            font-weight: 800;
+        }
+
+        .solution-header .highlight {
+            background: var(--primary);
+            padding: 0 12px;
+            border-radius: 8px;
+        }
+
+        .solution-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .solution-card {
+            background: var(--white);
+            border-radius: 0;
+            padding: 36px;
+            border: 2px solid var(--gray-200);
+            border-top: 4px solid var(--primary);
+        }
+
+        .solution-number {
+            display: inline-flex;
+            width: 48px;
+            height: 48px;
+            background: var(--black);
+            color: var(--primary);
+            border-radius: 50%;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .solution-card h3 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .solution-card > p {
+            color: var(--black);
+            font-size: 15px;
+            margin-bottom: 20px;
+        }
+
+        .solution-card ul {
+            list-style: none;
+        }
+
+        .solution-card li {
+            padding: 12px 0;
+            padding-left: 24px;
+            position: relative;
+            font-size: 14px;
+            color: var(--black);
+            border-top: 1px solid var(--gray-200);
+        }
+
+        .solution-card li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--black);
+            font-weight: 700;
+        }
+
+        .solution-card li strong {
+            color: var(--black);
+        }
+
+        /* Validation Section */
+        .validation-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .metric-card {
+            background: var(--white);
+            border-radius: 0;
+            padding: 36px;
+            text-align: center;
+            border: 2px solid var(--gray-200);
+        }
+
+        .metric-value {
+            font-size: 56px;
+            font-weight: 900;
+            margin-bottom: 8px;
+            letter-spacing: -2px;
+        }
+
+        .metric-label {
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--black);
+        }
+
+        .metric-desc {
+            margin-top: 12px;
+            font-size: 14px;
+            color: var(--black);
+        }
+
+        .validation-conclusion {
+            background: var(--primary);
+            border-radius: 0;
+            padding: 28px 40px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        /* Market Section */
+        .market-cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .market-card {
+            background: var(--white);
+            border-radius: 0;
+            padding: 48px;
+            border: 2px solid var(--gray-200);
+        }
+
+        .market-card.highlight {
+            background: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .market-label {
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--black);
+            margin-bottom: 12px;
+        }
+
+        .market-card.highlight .market-label {
+            color: var(--black);
+        }
+
+        .market-value {
+            font-size: 72px;
+            font-weight: 900;
+            margin-bottom: 20px;
+            letter-spacing: -3px;
+        }
+
+        .market-card p {
+            font-size: 16px;
+            color: var(--black);
+            line-height: 1.7;
+        }
+
+        .market-stat {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 2px solid rgba(0,0,0,0.1);
+        }
+
+        .stat-highlight {
+            font-size: 56px;
+            font-weight: 900;
+            letter-spacing: -2px;
+        }
+
+        .stat-text {
+            font-size: 14px;
+            color: var(--black);
+        }
+
+        /* Business Model */
+        .model-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .model-card {
+            background: var(--white);
+            border-radius: 0;
+            padding: 48px;
+            border: 2px solid var(--gray-200);
+        }
+
+        .model-card h3 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .model-card p {
+            font-size: 16px;
+            color: var(--black);
+        }
+
+        .model-tag {
+            display: inline-block;
+            padding: 6px 14px;
+            background: #FFEEEE;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #CC0000;
+            margin-top: 20px;
+        }
+
+        /* GTM Section */
+        .gtm-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .gtm-card {
+            background: var(--white);
+            border-radius: 0;
+            padding: 40px;
+            border: 2px solid var(--gray-200);
+        }
+
+        .gtm-card.featured {
+            background: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .gtm-card h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .gtm-badge {
+            padding: 4px 12px;
+            background: var(--black);
+            color: var(--primary);
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .gtm-item {
+            margin-bottom: 20px;
+        }
+
+        .gtm-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .gtm-item h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .gtm-item p {
+            font-size: 14px;
+            color: var(--black);
+        }
+
+        .gtm-card.featured .gtm-item p {
+            color: var(--black);
+        }
+
+        /* Roadmap */
+        .roadmap-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .roadmap-card {
+            background: var(--white);
+            border-radius: 0;
+            padding: 36px;
+            text-align: center;
+            border: 2px solid var(--gray-200);
+        }
+
+        .roadmap-card.current {
+            background: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .phase-badge {
+            display: inline-flex;
+            width: 56px;
+            height: 56px;
+            background: var(--white);
+            border: 3px solid var(--black);
+            border-radius: 50%;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .roadmap-card.current .phase-badge {
+            background: var(--black);
+            color: var(--primary);
+            border-color: var(--black);
+        }
+
+        .roadmap-card h4 {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--black);
+            margin-bottom: 8px;
+        }
+
+        .roadmap-card.current h4 {
+            color: var(--black);
+        }
+
+        .roadmap-card h3 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .roadmap-card p {
+            font-size: 14px;
+            color: var(--black);
+        }
+
+        /* Flywheel */
+        .flywheel-container {
+            display: flex;
+            justify-content: center;
+            padding: 40px 0;
+        }
+
+        .flywheel-grid {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr auto 1fr;
+            grid-template-rows: auto auto auto;
+            gap: 0;
+            align-items: center;
+            max-width: 900px;
+        }
+
+        .flywheel-item {
+            background: var(--white);
+            padding: 24px 20px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 600;
+            border: 2px solid var(--gray-200);
+        }
+
+        .flywheel-arrow {
+            font-size: 24px;
+            font-weight: 700;
+            text-align: center;
+            padding: 0 8px;
+        }
+
+        .flywheel-arrow.down {
+            grid-column: 5;
+            padding: 8px 0;
+        }
+
+        .flywheel-arrow.left {
+            grid-column: span 3;
+            text-align: center;
+            padding: 8px 0;
+        }
+
+        .flywheel-arrow.up {
+            grid-column: 1;
+            padding: 8px 0;
+        }
+
+        .flywheel-center {
+            background: var(--primary);
+            padding: 20px;
+            text-align: center;
+            font-size: 16px;
+            font-weight: 800;
+            border: 2px solid var(--black);
+        }
+
+        /* Competition */
+        .competition-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--white);
+            border-radius: 0;
+            overflow: hidden;
+            border: 2px solid var(--gray-200);
+        }
+
+        .competition-table th,
+        .competition-table td {
+            padding: 20px 24px;
+            text-align: left;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .competition-table th {
+            background: var(--gray-100);
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--black);
+        }
+
+        .competition-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .competition-table tr.highlight {
+            background: var(--primary);
+        }
+
+        .competition-table .company {
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        .check {
+            color: #00AA00;
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .cross {
+            color: #CC0000;
+            font-size: 18px;
+        }
+
+        /* Team */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .team-card {
+            background: var(--white);
+            border-radius: 0;
+            padding: 36px;
+            border: 2px solid var(--gray-200);
+        }
+
+        .team-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 24px;
+        }
+
+        .team-avatar {
+            width: 72px;
+            height: 72px;
+            background: var(--black);
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 800;
+        }
+
+        .team-info h3 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .team-info h4 {
+            font-size: 14px;
+            color: var(--black);
+            font-weight: 600;
+        }
+
+        .team-bio {
+            list-style: none;
+        }
+
+        .team-bio li {
+            padding: 12px 0;
+            padding-left: 20px;
+            position: relative;
+            font-size: 14px;
+            color: var(--black);
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .team-bio li:last-child {
+            border-bottom: none;
+        }
+
+        .team-bio li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--black);
+            font-weight: 700;
+        }
+
+        .team-bio li strong {
+            color: var(--black);
+        }
+
+        .highlight-metric {
+            background: var(--primary);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        /* Vision */
+        .vision-section {
+            background: var(--primary);
+            max-width: 100%;
+            text-align: center;
+        }
+
+        .vision-quote {
+            font-size: 48px;
+            font-weight: 800;
+            line-height: 1.2;
+            max-width: 900px;
+            margin: 0 auto 32px;
+            letter-spacing: -1px;
+        }
+
+        .vision-quote .highlight {
+            background: var(--black);
+            color: var(--primary);
+            padding: 0 16px;
+            border-radius: 8px;
+        }
+
+        .vision-text {
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+            color: var(--black);
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 60px;
+            text-align: center;
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .footer-logo {
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .footer-logo span {
+            background: var(--primary);
+            color: var(--black);
+            padding: 2px 8px;
+            border-radius: 6px;
+            margin-left: 2px;
+        }
+
+        .footer-text {
+            color: var(--gray-200);
+            font-size: 14px;
+        }
+
+        /* Flow Diagram */
+        .flow-diagram {
+            margin-top: 60px;
+            text-align: center;
+        }
+
+        .flow-diagram h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 40px;
+            font-size: 14px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            section {
+                padding: 60px 30px;
+            }
+
+            .hero {
+                padding: 40px 30px;
+            }
+
+            .hero h1 {
+                font-size: 56px;
+            }
+
+            .problem-grid,
+            .solution-grid,
+            .validation-grid,
+            .market-cards,
+            .model-grid,
+            .gtm-grid,
+            .roadmap-grid,
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 36px;
+            }
+
+            .market-value {
+                font-size: 48px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-logo">Viral<span>AI</span></div>
+        <h1>Think Viral,<br>Create Scale.</h1>
+        <p class="hero-subtitle">Viral AI is an end-to-end engine that automates viral ideas and video production at scale.</p>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem-section">
+        <div class="section-header">
+            <span class="section-tag">The Problem</span>
+            <h2 class="section-title">The Broken Creative Pipeline</h2>
+            <p class="section-desc">Brands and creators are trapped in an inefficient, unscalable content creation cycle.</p>
+        </div>
+
+        <div class="problem-grid">
+            <div class="problem-card">
+                <h3>Content Creation is a Guessing Game</h3>
+                <p>Advertisers and creators have no idea what scripts will go viral. Every creative decision is based on gut feeling, not data.</p>
+            </div>
+            <div class="problem-card">
+                <h3>Matching Inefficiency</h3>
+                <p>Finding the right creators manually is extremely inefficient, with massive communication overhead and wasted resources.</p>
+            </div>
+            <div class="problem-card">
+                <h3>Impossible to Scale</h3>
+                <p>Brands struggle to manage content output and order workflows across hundreds or thousands of KOLs simultaneously.</p>
+            </div>
+        </div>
+
+        <div class="reference-box">
+            <h4>💡 Industry Context</h4>
+            <div class="reference-item">
+                <h5>The Content Supply Gap</h5>
+                <p>Meta/Google absorbed hundreds of billions in ad spend through DPA because image automation is simple. But in the TikTok/Reels era, <strong>no video = no ad distribution.</strong></p>
+            </div>
+            <div class="reference-item">
+                <h5>The Long-Tail SKU Problem</h5>
+                <p>Advertisers have 10,000 SKUs but only 5 viral videos. <strong>99% of products can't get traffic</strong> on short-video platforms because they lack video assets.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section>
+        <div class="solution-header">
+            <span class="section-tag">The Solution</span>
+            <h2>We Turn <span class="highlight">"Viral Magic"</span> Into Replicable Engineering</h2>
+        </div>
+
+        <div class="solution-grid">
+            <div class="solution-card">
+                <div class="solution-number">1</div>
+                <h3>AI Creative Engine</h3>
+                <p>Real-time monitoring of global short-video platforms, using vision and text AI to decode the "viral DNA."</p>
+                <ul>
+                    <li><strong>Pattern Recognition:</strong> Identifies what makes content go viral</li>
+                    <li><strong>Auto-Matching:</strong> AI algorithms automatically match the best creatives to your product</li>
+                </ul>
+            </div>
+
+            <div class="solution-card">
+                <div class="solution-number">2</div>
+                <h3>Creator Cloning Factory</h3>
+                <p>Empowerment, not replacement. Creators record their likeness once, then seamlessly integrate into proven viral templates.</p>
+                <ul>
+                    <li><strong>One-Click Cloning:</strong> Instantly insert your face into verified hit video templates</li>
+                    <li><strong>Industrial Output:</strong> Anyone can produce "Hollywood-quality" shoppable videos in 5 minutes</li>
+                </ul>
+            </div>
+
+            <div class="solution-card">
+                <div class="solution-number">3</div>
+                <h3>Programmatic Matching Network</h3>
+                <p>Highly efficient matching between KOLs and advertisers, enabling automated, bulk content production at scale.</p>
+                <ul>
+                    <li><strong>Smart Pairing:</strong> Algorithmically match creators to brand campaigns</li>
+                    <li><strong>Automated Workflows:</strong> End-to-end production pipeline from brief to delivery</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Flow Diagram -->
+        <div class="flow-diagram">
+            <h3>How It Works</h3>
+            <img src="Gemini_Generated_Image_5jaqbn5jaqbn5jaq.png" alt="Viral AI Workflow" style="width: 100%; max-width: 1100px; margin: 0 auto; display: block;">
+        </div>
+    </section>
+
+    <!-- Market Validation Section -->
+    <section>
+        <div class="section-header">
+            <span class="section-tag">Market Validation</span>
+            <h2 class="section-title">Proven & Production-Ready</h2>
+            <p class="section-desc">We've launched cloneviral.video and validated the complete "AI viral deconstruction → face-swap replication" pipeline.</p>
+        </div>
+
+        <div class="validation-grid">
+            <div class="metric-card">
+                <div class="metric-value">$0.5</div>
+                <div class="metric-label">Native Content CPI</div>
+                <p class="metric-desc">Baseline performance with original creator content</p>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">$0.7</div>
+                <div class="metric-label">AI-Replicated CPI</div>
+                <p class="metric-desc">Near-native performance at 90% lower production cost</p>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">90%</div>
+                <div class="metric-label">Cost Reduction</div>
+                <p class="metric-desc">Dramatic savings in content production</p>
+            </div>
+        </div>
+
+        <div class="validation-conclusion">
+            <strong>Industry Conclusion:</strong> AI-generated content has reached production-grade commercial standards, ready for large-scale ad deployment.
+        </div>
+    </section>
+
+    <!-- Market Size Section -->
+    <section>
+        <div class="section-header">
+            <span class="section-tag">Market Opportunity</span>
+            <h2 class="section-title">Massive Untapped Potential</h2>
+        </div>
+
+        <div class="market-cards">
+            <div class="market-card">
+                <div class="market-label">Total Addressable Market</div>
+                <div class="market-value">$2T+</div>
+                <p>The global social media advertising market represents an enormous opportunity for disruption.</p>
+            </div>
+            <div class="market-card highlight">
+                <div class="market-label">The Real Opportunity</div>
+                <div class="market-value">99%</div>
+                <p>Unlocking suppressed long-tail SKU advertising demand. Currently, only the top 1% of products have sufficient video assets.</p>
+                <div class="market-stat">
+                    <div class="stat-highlight">99%</div>
+                    <div class="stat-text">of products locked out of short-video platforms due to lack of video content. Viral AI unlocks their full ad potential.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Business Model Section -->
+    <section>
+        <div class="section-header">
+            <span class="section-tag">Business Model</span>
+            <h2 class="section-title">How We Monetize</h2>
+        </div>
+
+        <div class="model-grid">
+            <div class="model-card">
+                <h3>💰 Transaction Commission</h3>
+                <p>We take a technology service fee from the GMV or ad spend generated through platform-facilitated transactions.</p>
+            </div>
+            <div class="model-card">
+                <h3>🏢 Full-Service Management</h3>
+                <p>Scalable service fees for end-to-end brand management and campaign operations.</p>
+                <span class="model-tag">Being Phased Out</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- GTM Section -->
+    <section>
+        <div class="section-header">
+            <span class="section-tag">Go-To-Market Strategy</span>
+            <h2 class="section-title">Adoption Strategy</h2>
+        </div>
+
+        <div class="gtm-grid">
+            <div class="gtm-card">
+                <h3>🏷️ Brand Side</h3>
+                <div class="gtm-item">
+                    <h4>Enterprise Clients</h4>
+                    <p>Multi-SKU DPA customers who need video assets at scale across their entire product catalog.</p>
+                </div>
+                <div class="gtm-item">
+                    <h4>Standard Clients</h4>
+                    <p>TikTok Shop sellers and overseas DTC brands looking to generate viral ads and traffic in bulk.</p>
+                </div>
+            </div>
+            <div class="gtm-card featured">
+                <h3>👤 Creator Side <span class="gtm-badge">Priority Focus</span></h3>
+                <div class="gtm-item">
+                    <h4>TikTok Shop Creators & Affiliates</h4>
+                    <p>We target TikTok Shop creators and the global affiliate marketing community. Our tools help them make money faster, building our critical mass of creators.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap Section -->
+    <section>
+        <div class="section-header">
+            <span class="section-tag">Roadmap</span>
+            <h2 class="section-title">The Path Forward</h2>
+        </div>
+
+        <div class="roadmap-grid">
+            <div class="roadmap-card current">
+                <div class="phase-badge">1</div>
+                <h4>The Tool Phase</h4>
+                <h3>Creator Foundation</h3>
+                <p>Build the ultimate AI cloning tool for creators. Accumulate seed users and proprietary data.</p>
+            </div>
+            <div class="roadmap-card">
+                <div class="phase-badge">2</div>
+                <h4>The Marketplace Phase</h4>
+                <h3>Network Effects</h3>
+                <p>Launch the automated matching engine. Connect brand SKUs with creators. Achieve commercial closed-loop.</p>
+            </div>
+            <div class="roadmap-card">
+                <div class="phase-badge">3</div>
+                <h4>The Infrastructure Phase</h4>
+                <h3>Global Ad Network</h3>
+                <p>Evolve into a global short-video ad network, expanding beyond TikTok to Reels, Shorts, and all platforms.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Growth Flywheel Section -->
+    <section>
+        <div class="section-header" style="text-align: center;">
+            <span class="section-tag">Growth Engine</span>
+            <h2 class="section-title">The Flywheel Effect</h2>
+        </div>
+
+        <div class="flywheel-container">
+            <div class="flywheel-grid">
+                <!-- Row 1 -->
+                <div class="flywheel-item">👥 More Creators<br>Use Tools</div>
+                <div class="flywheel-arrow">→</div>
+                <div class="flywheel-item">📊 More Viral Data<br>Generated</div>
+                <div class="flywheel-arrow">→</div>
+                <div class="flywheel-item">🏢 Attracts More<br>Brand Spend</div>
+                <!-- Row 2 -->
+                <div class="flywheel-arrow">↑</div>
+                <div></div>
+                <div class="flywheel-center">🔄 FLYWHEEL</div>
+                <div></div>
+                <div class="flywheel-arrow">↓</div>
+                <!-- Row 3 -->
+                <div class="flywheel-item">🚀 Attracts More<br>Creators</div>
+                <div class="flywheel-arrow">←</div>
+                <div class="flywheel-item">💵 Creators Earn<br>More Money</div>
+                <div class="flywheel-arrow">←</div>
+                <div class="flywheel-item">📈 Better Content<br>Performance</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Competition Section -->
+    <section>
+        <div class="section-header">
+            <span class="section-tag">Competitive Landscape</span>
+            <h2 class="section-title">Why We Win</h2>
+        </div>
+
+        <table class="competition-table">
+            <thead>
+                <tr>
+                    <th>Company</th>
+                    <th>AI Creative Engine</th>
+                    <th>Creator Cloning</th>
+                    <th>Programmatic Matching</th>
+                    <th>End-to-End Platform</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="highlight">
+                    <td class="company">Viral AI</td>
+                    <td class="check">✓</td>
+                    <td class="check">✓</td>
+                    <td class="check">✓</td>
+                    <td class="check">✓</td>
+                </tr>
+                <tr>
+                    <td class="company">Traditional Agencies</td>
+                    <td class="cross">✗</td>
+                    <td class="cross">✗</td>
+                    <td class="cross">✗</td>
+                    <td class="cross">✗</td>
+                </tr>
+                <tr>
+                    <td class="company">Creator Marketplaces</td>
+                    <td class="cross">✗</td>
+                    <td class="cross">✗</td>
+                    <td class="check">✓</td>
+                    <td class="cross">✗</td>
+                </tr>
+                <tr>
+                    <td class="company">AI Video Tools</td>
+                    <td class="check">✓</td>
+                    <td class="check">✓</td>
+                    <td class="cross">✗</td>
+                    <td class="cross">✗</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Team Section -->
+    <section>
+        <div class="section-header">
+            <span class="section-tag">The Team</span>
+            <h2 class="section-title">World-Class Operators</h2>
+            <p class="section-desc">A proven team from Meta, TikTok, Google, and YouTube with a track record of building global hits.</p>
+        </div>
+
+        <div class="team-grid">
+            <div class="team-card">
+                <div class="team-header">
+                    <div class="team-avatar">LX</div>
+                    <div class="team-info">
+                        <h3>Louis Xu</h3>
+                        <h4>Founder</h4>
+                    </div>
+                </div>
+                <ul class="team-bio">
+                    <li><strong>Advertising & Growth Expert:</strong> World-class expertise from Meta (Tech Lead for Video DR Ads) and TikTok (Product Lead for E-commerce Ads). Scaled Meta's Video DR Ad Revenue from <span class="highlight-metric">$400K to $40M/day</span>.</li>
+                    <li><strong>Serial Entrepreneur:</strong> Built global hits from 0 to 1: LiveIn (App Store #1, 2M DAU), Tiya (Social Top 4), Livehouse (Social Top 10).</li>
+                    <li><strong>Strategic Advisor:</strong> Growth consultant for high-profile tech firms. Managed cross-functional teams of 400+ people.</li>
+                </ul>
+            </div>
+
+            <div class="team-card">
+                <div class="team-header">
+                    <div class="team-avatar">JT</div>
+                    <div class="team-info">
+                        <h3>Jack Tan</h3>
+                        <h4>CTO</h4>
+                    </div>
+                </div>
+                <ul class="team-bio">
+                    <li><strong>Algorithms & Infrastructure Expert:</strong> CMU graduate and ACM-ICPC North American Invitational <span class="highlight-metric">Gold Medalist (#6)</span>.</li>
+                    <li><strong>Ex-Google/YouTube Tech Lead:</strong> 5 years at YouTube deep-diving into video ad recommendations, infrastructure, modeling, and content moderation algorithms.</li>
+                    <li><strong>Technical Moat:</strong> Architects high-concurrency systems bridging AI modeling and massive-scale ad distribution.</li>
+                </ul>
+            </div>
+
+            <div class="team-card">
+                <div class="team-header">
+                    <div class="team-avatar">SC</div>
+                    <div class="team-info">
+                        <h3>Sky Cheng</h3>
+                        <h4>CPO</h4>
+                    </div>
+                </div>
+                <ul class="team-bio">
+                    <li><strong>Visionary Product Architect:</strong> Former Product Lead for Sango (<span class="highlight-metric">50M+ users</span>) and LiveIn (App Store Overall #1).</li>
+                    <li><strong>Product & Design Specialist:</strong> Master of social and AI products. Renowned for top-tier UI/UX and human-AI interaction expertise.</li>
+                    <li>Ensures complex technology is delivered through an intuitive, world-class user experience.</li>
+                </ul>
+            </div>
+
+            <div class="team-card">
+                <div class="team-header">
+                    <div class="team-avatar">GW</div>
+                    <div class="team-info">
+                        <h3>Gaffey Wang</h3>
+                        <h4>Chief Content Officer</h4>
+                    </div>
+                </div>
+                <ul class="team-bio">
+                    <li><strong>Master Marketing Hacker:</strong> Creative mind behind global hits: LiveIn (Overall #1), Clapper (Overall #2), QuestionAI (Education #1), Poly AI, Rizzkey (Reference #10).</li>
+                    <li><strong>Viral Content Alchemist:</strong> Possesses a "sixth sense" for global culture and virality.</li>
+                    <li>Specializes in deconstructing high-performance marketing content into scalable, programmable AI logic.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision Section -->
+    <section class="vision-section">
+        <span class="section-tag" style="background: var(--black); color: var(--primary);">Our Vision</span>
+        <h2 class="vision-quote">"Eliminating <span class="highlight">'Camera Privilege'</span>"</h2>
+        <p class="vision-text">
+            We believe that the power to go viral shouldn't be limited to those with a camera and a studio. 
+            By using AI to decode and replicate creative genes, we empower every brand and every person 
+            to share their story with the world—<strong>instantly and effortlessly.</strong>
+        </p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-logo">Viral<span>AI</span></div>
+        <p class="footer-text">Think Viral. Create Scale. © 2025 Viral AI. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
